@@ -5,5 +5,5 @@ import retrofit2.http.GET
 
 interface IBookingRepository {
     @GET("booking")
-    suspend fun getAllTrip(): List<DtoInputBooking>
+    suspend fun getAllBooking(): List<DtoInputBooking>
 }
