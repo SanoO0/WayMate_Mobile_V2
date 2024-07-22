@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Waymate_Mobile</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="btnSignIn">Sign In</string>
+    <string name="content_description_end_icon">                                   </string>
 </resources>
