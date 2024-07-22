@@ -1,13 +1,37 @@
 package com.example.waymate_mobile.utils
 
+import android.provider.SyncStateContract.Constants
+import android.util.Log
+import com.google.gson.GsonBuilder
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+
 object RetrofitFactory {
-    private val _url: String = "https://localhost:7210/api/v1/"
-    val instance: Retrofit = Retrofit
-        .Builder()
-        .baseUrl(_url)
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
+    private val BASE_URL: String = "http://10.0.2.2:5075"
+
+    fun<T> create(token: String?, repositoryClass: Class<T>): T {
+        val gson = GsonBuilder()
+            .setDateFormat("yyyy-MM-dd'T'HH:mm:ss")
+            .create()
+
+        var retrofit: Retrofit
+
+        if (token != null) {
+            val okHttpClient = OkHttpClientFactory.create(token)
+            retrofit = Retrofit
+                .Builder()
+                .baseUrl(BASE_URL)
+                .client(okHttpClient)
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .build()
+        } else {
+            retrofit = Retrofit
+                .Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .build()
+        }
+        return retrofit.create(repositoryClass)
+    }
 }
