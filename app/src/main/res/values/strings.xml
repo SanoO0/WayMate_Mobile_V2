@@ -10,4 +10,6 @@
     <string name="btnShowTravel">See Travel</string>
     <string name="btnShowProfil">View Profil</string>
     <string name="btnLogOut">Disconnection</string>
+    <string name="btnShowMyTravel">Show My Travel</string>
+    <string name="btnAddNewTravel">Add New Travel</string>
 </resources>

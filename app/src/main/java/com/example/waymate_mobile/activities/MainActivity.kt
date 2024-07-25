@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.waymate_mobile.R
 import com.example.waymate_mobile.databinding.ActivityMainBinding
 import com.example.waymate_mobile.fragments.menu.MainMenuDriverFragment
+import com.example.waymate_mobile.fragments.menu.MainMenuPassengerFragment
 import com.example.waymate_mobile.services.UserTypeService
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -37,6 +38,15 @@ class MainActivity : AppCompatActivity() {
         binding.topMenuBar.menu.getItem(0).title = ""
     }
 
+    private fun showMainMenuPassenger() {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainerView_mainActivity, MainMenuPassengerFragment.newInstance(), "MainMenuPassengerFragment")
+            .commit()
+        binding.topMenuBar.menu.getItem(0).setIcon(0)
+        binding.topMenuBar.menu.getItem(0).setEnabled(false)
+        binding.topMenuBar.menu.getItem(0).title = ""
+    }
+
     private fun isTokenPresent(): Boolean = getSharedPreferences("waymate", MODE_PRIVATE).getString("jwtToken", null) != null
 
     fun signOut() {
@@ -58,7 +68,7 @@ class MainActivity : AppCompatActivity() {
             if(userType == "Driver") {
                 showMainMenuDriver()
             } else if(userType == "Passenger") {
-
+                showMainMenuPassenger()
             } else if(userType == "Admin") {
 
             } else {
