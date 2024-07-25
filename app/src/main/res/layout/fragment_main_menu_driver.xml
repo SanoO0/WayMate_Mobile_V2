@@ -18,19 +18,30 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
-            android:id="@+id/GoToTravel"
+            android:id="@+id/btnShowMyTravel"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="200dp"
+            android:layout_marginTop="100dp"
             android:background="@drawable/rounded_corner"
             android:backgroundTint="@color/blueWaymate"
-            android:text="@string/btnShowTravel"
+            android:text="@string/btnShowMyTravel"
             android:textColor="@android:color/white"
             android:textSize="20sp" />
 
 
         <Button
-            android:id="@+id/GoToProfil"
+            android:id="@+id/btnAddNewTravel"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:background="@drawable/rounded_corner"
+            android:backgroundTint="@color/blueWaymate"
+            android:text="@string/btnAddNewTravel"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btnViewProfile"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"
