@@ -15,7 +15,7 @@ import com.example.waymate_mobile.utils.RetrofitFactory
 import kotlinx.coroutines.launch
 import java.util.regex.Pattern
 
-class SigninActivity : AppCompatActivity() {
+class SignInActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySigninBinding
     private lateinit var jwtToken: String
     private lateinit var authenticationRepository: IAuthenticationRepository
@@ -33,15 +33,16 @@ class SigninActivity : AppCompatActivity() {
         binding.btnSignIn.setOnClickListener {
             submitForm(
                 binding.etLogin.text.toString(),
-                binding.etPassword.text.toString()
+                binding.etPassword.text.toString(),
+                true
             )
         }
     }
 
-    private fun submitForm(email: String, password: String) {
+    private fun submitForm(email: String, password: String, stay: Boolean) {
         lifecycleScope.launch {
             try {
-                authenticationRepository.signIn(DtoOutputSigIn(email, password)).let { response ->
+                authenticationRepository.signIn(DtoOutputSigIn(email, password, stay)).let { response ->
                     if (response.isSuccessful) {
                         response.headers().get("Set-Cookie")?.let { cookieHeader ->
                             extractTokenFromCookie(cookieHeader)?.let { token ->
@@ -49,20 +50,13 @@ class SigninActivity : AppCompatActivity() {
                             }
 
                         }
-                        if(authenticationRepository.testTypeUserPassenger().isSuccessful){
-                            Log.d("Test User", "Passenger")
-                        } else if (authenticationRepository.testTypeUserDriver().isSuccessful) {
-                            Log.d("Test User", "Driver")
-                        } else if (authenticationRepository.testTypeUserAdmin().isSuccessful) {
-                            Log.d("Test User", "Admin")
-                        }
                         navigateToMainActivity()
 
                     } else {
-                        Toast.makeText(this@SigninActivity, "Username or Password incorrect", Toast.LENGTH_SHORT).show()
+                        Log.d("ErrorAuth", "Error Auth: ${response.message()}")
+                        Toast.makeText(this@SignInActivity, "Email or Password incorrect", Toast.LENGTH_SHORT).show()
                         binding.etLogin.text?.clear()
                         binding.etPassword.text?.clear()
-                      Log.d("ErrorAuth", "Error Auth: ${response.message()}")
                     }
                 }
             } catch (e: Exception) {
@@ -71,7 +65,7 @@ class SigninActivity : AppCompatActivity() {
         }
     }
 
-    private fun extractTokenFromCookie(cookieHeader: String): String? = Pattern.compile("WayMateToken=([^;]+)").matcher(cookieHeader).takeIf { it.find() }?.group(1)
+    private fun extractTokenFromCookie(cookieHeader: String): String? = Pattern.compile("WaymateSession=([^;]+)").matcher(cookieHeader).takeIf { it.find() }?.group(1)
     private fun updateTokenInPreferences(newToken: String) {
         getSharedPreferences("waymate", MODE_PRIVATE).edit().apply {
             putString("jwtToken", newToken)
@@ -80,6 +74,6 @@ class SigninActivity : AppCompatActivity() {
     }
 
     private fun navigateToMainActivity() {
-        startActivity(Intent(this@SigninActivity, MainActivity::class.java))
+        startActivity(Intent(this@SignInActivity, MainActivity::class.java))
     }
 }
