@@ -31,8 +31,6 @@ object OkHttpClientFactory {
                 chain.proceed(request)
             }
             .cookieJar(cookieJar)
-            .followSslRedirects(false)
-            .followRedirects(false)
             .build()
         return okHttpClient
     }
