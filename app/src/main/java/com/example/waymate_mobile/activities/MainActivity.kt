@@ -1,13 +1,16 @@
 package com.example.waymate_mobile.activities
 
 import android.content.Intent
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.waymate_mobile.R
 import com.example.waymate_mobile.databinding.ActivityMainBinding
 import com.example.waymate_mobile.fragments.menu.MainMenuDriverFragment
 import com.example.waymate_mobile.fragments.menu.MainMenuPassengerFragment
+import com.example.waymate_mobile.fragments.showTravel.ShowTravelFragment
 import com.example.waymate_mobile.services.UserTypeService
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -21,7 +24,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         if (!isTokenPresent()) {
             startActivity(Intent(this, SignInActivity::class.java))
             finish()
@@ -30,21 +32,30 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showMainMenuDriver() {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragmentContainerView_mainActivity, MainMenuDriverFragment.newInstance(), "MainMenuDriverFragment")
-            .commit()
-        binding.topMenuBar.menu.getItem(0).setIcon(0)
-        binding.topMenuBar.menu.getItem(0).setEnabled(false)
-        binding.topMenuBar.menu.getItem(0).title = ""
+        replaceFragment(MainMenuDriverFragment.newInstance())
+        changeTopMenu(0, false, "")
     }
 
     private fun showMainMenuPassenger() {
+        replaceFragment(MainMenuPassengerFragment.newInstance())
+        changeTopMenu(0, false, "")
+    }
+
+    fun showDriverTravel() {
+        replaceFragment(ShowTravelFragment.newInstance())
+        changeTopMenu(R.drawable.ic_arrow_back_24, true, "My Travel - Driver")
+    }
+
+    private fun replaceFragment(fragment: androidx.fragment.app.Fragment) {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.fragmentContainerView_mainActivity, MainMenuPassengerFragment.newInstance(), "MainMenuPassengerFragment")
+            .replace(R.id.fragmentContainerView_mainActivity, fragment)
             .commit()
-        binding.topMenuBar.menu.getItem(0).setIcon(0)
-        binding.topMenuBar.menu.getItem(0).setEnabled(false)
-        binding.topMenuBar.menu.getItem(0).title = ""
+    }
+
+    private fun changeTopMenu(icon: Int, enable: Boolean, title: String) {
+        binding.topMenuBar.menu.getItem(0).setIcon(icon)
+        binding.topMenuBar.menu.getItem(0).setEnabled(enable)
+        binding.topMenuBar.menu.getItem(0).title = title
     }
 
     private fun isTokenPresent(): Boolean = getSharedPreferences("waymate", MODE_PRIVATE).getString("jwtToken", null) != null
@@ -54,7 +65,6 @@ class MainActivity : AppCompatActivity() {
         val editor = prefs.edit()
         editor.putString("jwtToken", null)
         editor.apply()
-
         if (!isTokenPresent()) {
             startActivity(Intent(this, SignInActivity::class.java))
             finish()
