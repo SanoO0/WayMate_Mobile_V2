@@ -1,0 +1,11 @@
+<androidx.recyclerview.widget.RecyclerView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/list"
+    android:name="com.example.waymate_mobile.fragments.showTravel.driver.ShowDriverTravelFragment"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+    tools:context=".fragments.showTravel.driver.ShowDriverTravelFragment"
+    tools:listitem="@layout/fragment_show_driver_travel_item" />

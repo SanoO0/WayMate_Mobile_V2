@@ -21,12 +21,12 @@ class MainMenuDriverFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        binding.btnShowMyTravel.setOnClickListener {
+            (requireActivity() as MainActivity).showDriverTravel()
+        }
         binding.btnDisconnection.setOnClickListener {
             (requireActivity() as MainActivity).signOut()
         }
-
-
     }
 
     companion object {
