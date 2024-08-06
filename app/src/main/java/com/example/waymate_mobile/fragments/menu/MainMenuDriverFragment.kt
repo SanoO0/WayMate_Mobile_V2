@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.waymate_mobile.R
 import com.example.waymate_mobile.activities.MainActivity
 import com.example.waymate_mobile.databinding.FragmentMainMenuDriverBinding
 
@@ -27,6 +28,7 @@ class MainMenuDriverFragment : Fragment() {
         binding.btnDisconnection.setOnClickListener {
             (requireActivity() as MainActivity).signOut()
         }
+        (requireActivity() as MainActivity).changeTopMenu(0, false, "")
     }
 
     companion object {
