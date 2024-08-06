@@ -5,11 +5,18 @@
     <string name="btnSignIn">Sign In</string>
     <string name="content_description_end_icon">                                   </string>
     <string name="back">Back</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="btnShowTravel">See Travel</string>
     <string name="btnShowProfil">View Profil</string>
     <string name="btnLogOut">Disconnection</string>
     <string name="btnShowMyTravel">Show My Travel</string>
     <string name="btnAddNewTravel">Add New Travel</string>
+    <string name="depart">Départ</string>
+    <string name="destination">Destination</string>
+    <string name="date">Date</string>
+    <string name="date_item">21/04/2000</string>
+    <string name="departure_item">Brussels</string>
+    <string name="destination_item">Mons</string>
+    <string name="qrcode_button_description">Generate QrCode</string>
+    <string name="more_trips">More trips</string>
 </resources>
