@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/showDriverTravelManager"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fcv_showDriverTravel_list"
+        android:name="com.example.waymate_mobile.fragments.showTravel.driver.ShowDriverTravelFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="26dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/btn_loadMoreTrips"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/blueWaymate"
+        android:text="@string/more_trips"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fcv_showDriverTravel_list"
+        app:strokeColor="@color/blueWaymate"
+        app:strokeWidth="10dp"
+        android:visibility="invisible"
+        android:enabled="false"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
