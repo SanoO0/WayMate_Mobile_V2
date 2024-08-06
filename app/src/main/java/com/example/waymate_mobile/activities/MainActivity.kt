@@ -1,10 +1,7 @@
 package com.example.waymate_mobile.activities
 
 import android.content.Intent
-import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.util.Log
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.waymate_mobile.R
 import com.example.waymate_mobile.databinding.ActivityMainBinding
@@ -29,6 +26,7 @@ class MainActivity : AppCompatActivity() {
             finish()
         }
         userTypeTest()
+        setUpListeners()
     }
 
     private fun showMainMenuDriver() {
@@ -49,10 +47,11 @@ class MainActivity : AppCompatActivity() {
     private fun replaceFragment(fragment: androidx.fragment.app.Fragment) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragmentContainerView_mainActivity, fragment)
+            .addToBackStack(null)
             .commit()
     }
 
-    private fun changeTopMenu(icon: Int, enable: Boolean, title: String) {
+    fun changeTopMenu(icon: Int, enable: Boolean, title: String) {
         binding.topMenuBar.menu.getItem(0).setIcon(icon)
         binding.topMenuBar.menu.getItem(0).setEnabled(enable)
         binding.topMenuBar.menu.getItem(0).title = title
@@ -84,6 +83,17 @@ class MainActivity : AppCompatActivity() {
             } else {
 
             }
+        }
+    }
+
+    private fun setUpListeners() {
+        binding.topMenuBar.setNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.back -> {
+                    supportFragmentManager.popBackStack()
+                }
+            }
+            true
         }
     }
 }
