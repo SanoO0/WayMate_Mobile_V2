@@ -4,6 +4,6 @@ import com.example.waymate_mobile.dtos.users.user.DtoInputUser
 import retrofit2.http.GET
 
 interface IUserRepository {
-    @GET("user")
-    suspend fun getAllUser(): List<DtoInputUser>
+    @GET("api/v1/user/getConnectedUserData")
+    suspend fun getUserData(): DtoInputUser
 }
