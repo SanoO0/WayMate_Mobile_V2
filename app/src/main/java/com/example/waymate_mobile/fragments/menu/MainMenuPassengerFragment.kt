@@ -23,9 +23,13 @@ class MainMenuPassengerFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.btnShowMyTravel.setOnClickListener {
+            (requireActivity() as MainActivity).showPassengerTravel()
+        }
         binding.btnDisconnection.setOnClickListener {
             (requireActivity() as MainActivity).signOut()
         }
+        (requireActivity() as MainActivity).changeTopMenu(0, false, "")
     }
 
     companion object {
