@@ -7,4 +7,7 @@ import retrofit2.http.Query
 interface ITripRepository {
     @GET("/api/v1/trip/tripByFilter")
     suspend fun getAllTrip(@Query("userCount") count: Int): List<DtoInputTrip>
+
+    @GET("/api/v1/trip/tripByFilterPassenger")
+    suspend fun getAllTripPassenger(@Query("userCount") count: Int): List<DtoInputTrip>
 }
