@@ -60,7 +60,7 @@ class DriverAccountFragment : Fragment() {
             append(" ")
             append(user.lastName)
         }
-        binding.userName.text = buildString {
+        binding.userUsername.text = buildString {
             append("Username : ")
             append(user.username)
         }
