@@ -30,8 +30,13 @@ class ShowDriverTravelFragment : Fragment() {
     }
 
     fun initUIWithTrip(trips: List<DtoInputTrip>?) {
-        trips?.forEach(tripUI::add)
-        showDriverTravelRecyclerViewAdapter.notifyDataSetChanged()
+        trips?.let {
+            tripUI.clear()
+            tripUI.addAll(it)
+            showDriverTravelRecyclerViewAdapter.notifyDataSetChanged()
+        }
+
+
 
     }
 

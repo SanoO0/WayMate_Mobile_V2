@@ -8,14 +8,8 @@ import android.view.ViewGroup
 import com.example.waymate_mobile.R
 import com.example.waymate_mobile.activities.MainActivity
 import com.example.waymate_mobile.databinding.FragmentShowTravelBinding
-import com.example.waymate_mobile.fragments.showTravel.driver.ShowDriverTravelFragment
 import com.example.waymate_mobile.fragments.showTravel.driver.ShowDriverTravelManagerFragment
-import com.example.waymate_mobile.repositories.IAuthenticationRepository
-import com.example.waymate_mobile.services.UserTypeService
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import java.net.PasswordAuthentication
+import com.example.waymate_mobile.fragments.showTravel.passenger.ShowPassengerTravelManagerFragment
 
 class ShowTravelFragment : Fragment() {
     private lateinit var binding: FragmentShowTravelBinding
@@ -29,8 +23,14 @@ class ShowTravelFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val showTravelFragment = ShowDriverTravelManagerFragment.newInstance()
-        replaceFragment(showTravelFragment)
+        if((requireActivity() as MainActivity).userType == "Driver") {
+            val showTravelFragment = ShowDriverTravelManagerFragment.newInstance()
+            replaceFragment(showTravelFragment)
+        } else if ((requireActivity() as MainActivity).userType == "Passenger") {
+            val showTravelFragment = ShowPassengerTravelManagerFragment.newInstance()
+            replaceFragment(showTravelFragment)
+        }
+
     }
 
     private fun replaceFragment(fragment: Fragment) {
