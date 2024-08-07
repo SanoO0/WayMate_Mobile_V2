@@ -16,6 +16,7 @@ import kotlinx.coroutines.launch
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var userTypeService: UserTypeService
+    var userType = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +43,11 @@ class MainActivity : AppCompatActivity() {
     fun showDriverTravel() {
         replaceFragment(ShowTravelFragment.newInstance())
         changeTopMenu(R.drawable.ic_arrow_back_24, true, "My Travel - Driver")
+    }
+
+    fun showPassengerTravel() {
+        replaceFragment(ShowTravelFragment.newInstance())
+        changeTopMenu(R.drawable.ic_arrow_back_24, true, "My Booking - Passenger")
     }
 
     private fun replaceFragment(fragment: androidx.fragment.app.Fragment) {
@@ -73,7 +79,7 @@ class MainActivity : AppCompatActivity() {
     private fun userTypeTest(){
         userTypeService = UserTypeService(this)
         CoroutineScope(Dispatchers.Main).launch {
-            val userType = userTypeService.getUserType()
+            userType = userTypeService.getUserType()
             if(userType == "Driver") {
                 showMainMenuDriver()
             } else if(userType == "Passenger") {
