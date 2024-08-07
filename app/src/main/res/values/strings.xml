@@ -20,4 +20,5 @@
     <string name="qrcode_button_description">Generate QrCode</string>
     <string name="more_trips">More trips</string>
     <string name="more_booking">More Booking</string>
+    <string name="data">UserData</string>
 </resources>
