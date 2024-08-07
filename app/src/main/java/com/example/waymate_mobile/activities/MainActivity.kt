@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.waymate_mobile.R
 import com.example.waymate_mobile.databinding.ActivityMainBinding
 import com.example.waymate_mobile.fragments.account.DriverAccountFragment
+import com.example.waymate_mobile.fragments.account.PassengerAccountFragment
 import com.example.waymate_mobile.fragments.menu.MainMenuDriverFragment
 import com.example.waymate_mobile.fragments.menu.MainMenuPassengerFragment
 import com.example.waymate_mobile.fragments.showTravel.ShowTravelFragment
@@ -44,6 +45,11 @@ class MainActivity : AppCompatActivity() {
     fun showProfileDriver(){
         replaceFragment(DriverAccountFragment.newInstance())
         changeTopMenu(R.drawable.ic_arrow_back_24, true, "My Profile - Driver")
+    }
+
+    fun showProfilePassenger(){
+        replaceFragment(PassengerAccountFragment.newInstance())
+        changeTopMenu(R.drawable.ic_arrow_back_24, true, "My Profile - Passenger")
     }
 
     fun showDriverTravel() {

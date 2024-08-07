@@ -26,6 +26,9 @@ class MainMenuPassengerFragment : Fragment() {
         binding.btnShowMyTravel.setOnClickListener {
             (requireActivity() as MainActivity).showPassengerTravel()
         }
+        binding.btnViewProfile.setOnClickListener {
+            (requireActivity() as MainActivity).showProfilePassenger()
+        }
         binding.btnDisconnection.setOnClickListener {
             (requireActivity() as MainActivity).signOut()
         }
