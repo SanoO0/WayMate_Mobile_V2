@@ -21,4 +21,8 @@
     <string name="more_trips">More trips</string>
     <string name="more_booking">More Booking</string>
     <string name="data">UserData</string>
+    <string name="today">08/07/2024 - 16h00</string>
+    <string name="titleDate">Date</string>
+    <string name="titleDepart">Depart</string>
+    <string name="titleDestination">Destination</string>
 </resources>
