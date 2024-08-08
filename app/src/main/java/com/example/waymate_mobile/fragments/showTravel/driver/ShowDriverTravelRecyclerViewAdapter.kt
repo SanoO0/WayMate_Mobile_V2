@@ -5,9 +5,14 @@ import android.content.SharedPreferences
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.TextView
+import androidx.fragment.app.FragmentActivity
+import com.example.waymate_mobile.R
+import com.example.waymate_mobile.activities.MainActivity
 import com.example.waymate_mobile.databinding.FragmentShowDriverTravelItemBinding
 import com.example.waymate_mobile.dtos.trip.DtoInputTrip
+import com.example.waymate_mobile.fragments.qrcode.GenerateQRCodeFragment
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -40,7 +45,11 @@ class ShowDriverTravelRecyclerViewAdapter(
             holder.day.text = formattedDate
             holder.departure.text = item.cityStartingPoint
             holder.destination.text = item.cityDestination
+            holder.generateQRCodeButton.setOnClickListener {
+                (holder.itemView.context as MainActivity).showGenerateQRCode(item)
+            }
         }
+
     }
 
     override fun getItemCount(): Int = values.size
@@ -50,5 +59,6 @@ class ShowDriverTravelRecyclerViewAdapter(
         val day: TextView = binding.itemDay
         val departure: TextView = binding.itemDeparture
         val destination: TextView = binding.itemDestination
+        val generateQRCodeButton: ImageButton = binding.btnQRcode
     }
 }
