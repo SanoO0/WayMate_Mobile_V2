@@ -5,10 +5,12 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.waymate_mobile.R
 import com.example.waymate_mobile.databinding.ActivityMainBinding
+import com.example.waymate_mobile.dtos.trip.DtoInputTrip
 import com.example.waymate_mobile.fragments.account.DriverAccountFragment
 import com.example.waymate_mobile.fragments.account.PassengerAccountFragment
 import com.example.waymate_mobile.fragments.menu.MainMenuDriverFragment
 import com.example.waymate_mobile.fragments.menu.MainMenuPassengerFragment
+import com.example.waymate_mobile.fragments.qrcode.GenerateQRCodeFragment
 import com.example.waymate_mobile.fragments.showTravel.ShowTravelFragment
 import com.example.waymate_mobile.services.UserTypeService
 import kotlinx.coroutines.CoroutineScope
@@ -55,6 +57,12 @@ class MainActivity : AppCompatActivity() {
     fun showDriverTravel() {
         replaceFragment(ShowTravelFragment.newInstance())
         changeTopMenu(R.drawable.ic_arrow_back_24, true, "My Travel - Driver")
+    }
+
+    fun showGenerateQRCode(dataQRcodeDriver: DtoInputTrip){
+        replaceFragment(GenerateQRCodeFragment.newInstance(dataQRcodeDriver))
+        changeTopMenu(R.drawable.ic_arrow_back_24, true, "Generate QRCode - Driver")
+
     }
 
     fun showPassengerTravel() {

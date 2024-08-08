@@ -3,4 +3,5 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="blueWaymate">#3F66B0</color>
+    <color name="redWaymate">#EE3859</color>
 </resources>
