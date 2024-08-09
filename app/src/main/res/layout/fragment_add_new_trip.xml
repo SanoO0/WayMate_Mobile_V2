@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".fragments.trip.addNewTrip.AddNewTripFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginEnd="50dp"
+                android:text="Basic information"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/et_startingPointLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="50dp"
+                android:background="@drawable/text_input_layout_background"
+                android:padding="5dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                app:endIconMode="clear_text"
+                app:startIconDrawable="@drawable/ic_password_24">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_startingPoint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/depart"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/et_DestinationLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginEnd="50dp"
+                android:background="@drawable/text_input_layout_background"
+                android:padding="5dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                app:endIconMode="clear_text"
+                app:startIconDrawable="@drawable/ic_password_24">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_Destination"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/destination"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginEnd="50dp"
+                android:background="@drawable/text_input_layout_background"
+                android:text="DATEPICKER TODO"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/et_PriceLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginEnd="50dp"
+                android:background="@drawable/text_input_layout_background"
+                android:padding="5dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                app:endIconMode="clear_text"
+                app:startIconDrawable="@drawable/ic_password_24">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_Price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/price"
+                    android:inputType="numberDecimal" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/listDivider"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginEnd="50dp" />
+
+            <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginEnd="50dp"
+            android:text="Car information"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/et_PlateNumberLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginEnd="50dp"
+                android:background="@drawable/text_input_layout_background"
+                android:padding="5dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                app:endIconMode="clear_text"
+                app:startIconDrawable="@drawable/ic_password_24">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_PlateNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/plate"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/et_BrandLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginEnd="50dp"
+                android:background="@drawable/text_input_layout_background"
+                android:padding="5dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                app:endIconMode="clear_text"
+                app:startIconDrawable="@drawable/ic_password_24">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_Brand"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/brand"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/et_ModelLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginEnd="50dp"
+                android:background="@drawable/text_input_layout_background"
+                android:padding="5dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                app:endIconMode="clear_text"
+                app:startIconDrawable="@drawable/ic_password_24">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_Model"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/model"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/listDivider"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginEnd="50dp" />
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/swtAir"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginEnd="50dp"
+                app:switchPadding="180dp"
+                android:text="@string/air_conditioning"/>
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/swtPet"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginEnd="50dp"
+                app:switchPadding="180dp"
+                android:text="@string/pet_friendly"/>
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/swtLuggage"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginEnd="50dp"
+                app:switchPadding="180dp"
+                android:text="@string/allowed_luggage"/>
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/swtSmoke"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginEnd="50dp"
+                app:switchPadding="180dp"
+                android:text="@string/allowed_smoke"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/listDivider"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginEnd="50dp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/et_MessageLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginEnd="50dp"
+                android:background="@drawable/text_input_layout_background"
+                android:padding="5dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                app:endIconMode="clear_text"
+                app:startIconDrawable="@drawable/ic_password_24">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_Message"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/model"
+                    android:inputType="textLongMessage" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/listDivider"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginEnd="50dp" />
+
+            <Button
+                android:id="@+id/btn_createTrip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginEnd="50dp"
+                android:layout_marginBottom="100dp"
+                android:backgroundTint="@color/blueWaymate"
+                android:background="@drawable/rounded_corner"
+                android:text="@string/create_new_trip"
+                android:textSize="20sp"
+                android:textColor="@android:color/white"
+                app:strokeWidth="3dp" />
+        </LinearLayout>
+</ScrollView>
