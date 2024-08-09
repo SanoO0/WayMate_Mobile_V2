@@ -32,7 +32,7 @@
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
                 app:endIconMode="clear_text"
-                app:startIconDrawable="@drawable/ic_password_24">
+                app:startIconDrawable="@drawable/ic_city_24">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_startingPoint"
@@ -54,7 +54,7 @@
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
                 app:endIconMode="clear_text"
-                app:startIconDrawable="@drawable/ic_password_24">
+                app:startIconDrawable="@drawable/ic_city_24">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_Destination"
@@ -85,7 +85,7 @@
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
                 app:endIconMode="clear_text"
-                app:startIconDrawable="@drawable/ic_password_24">
+                app:startIconDrawable="@drawable/ic_euro_24">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_Price"
@@ -123,7 +123,7 @@
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
                 app:endIconMode="clear_text"
-                app:startIconDrawable="@drawable/ic_password_24">
+                app:startIconDrawable="@drawable/ic_plate_24">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_PlateNumber"
@@ -145,7 +145,7 @@
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
                 app:endIconMode="clear_text"
-                app:startIconDrawable="@drawable/ic_password_24">
+                app:startIconDrawable="@drawable/ic_car_24">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_Brand"
@@ -167,7 +167,7 @@
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
                 app:endIconMode="clear_text"
-                app:startIconDrawable="@drawable/ic_password_24">
+                app:startIconDrawable="@drawable/ic_car_24">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_Model"
@@ -185,45 +185,113 @@
                 android:layout_marginTop="35dp"
                 android:layout_marginEnd="50dp" />
 
-            <com.google.android.material.switchmaterial.SwitchMaterial
-                android:id="@+id/swtAir"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="50dp"
                 android:layout_marginTop="35dp"
                 android:layout_marginEnd="50dp"
-                app:switchPadding="180dp"
-                android:text="@string/air_conditioning"/>
+                android:text="More information"/>
 
-            <com.google.android.material.switchmaterial.SwitchMaterial
-                android:id="@+id/swtPet"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginStart="50dp"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="35dp"
-                android:layout_marginEnd="50dp"
-                app:switchPadding="180dp"
-                android:text="@string/pet_friendly"/>
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
 
-            <com.google.android.material.switchmaterial.SwitchMaterial
-                android:id="@+id/swtLuggage"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginStart="50dp"
-                android:layout_marginTop="35dp"
-                android:layout_marginEnd="50dp"
-                app:switchPadding="180dp"
-                android:text="@string/allowed_luggage"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="50dp"
+                    android:text="@string/air_conditioning"
+                    android:textSize="16sp"
+                    android:gravity="start"
+                    android:drawableStart="@drawable/ic_air_conditioning_24"
+                    android:drawablePadding="8dp"/>
 
-            <com.google.android.material.switchmaterial.SwitchMaterial
-                android:id="@+id/swtSmoke"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginStart="50dp"
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/swtAir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="50dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="35dp"
-                android:layout_marginEnd="50dp"
-                app:switchPadding="180dp"
-                android:text="@string/allowed_smoke"/>
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="50dp"
+                    android:text="@string/allowed_smoke"
+                    android:textSize="16sp"
+                    android:gravity="start"
+                    android:drawableStart="@drawable/ic_smoke_24"
+                    android:drawablePadding="8dp"/>
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/swtSmoke"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="50dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="50dp"
+                    android:text="@string/pet_friendly"
+                    android:textSize="16sp"
+                    android:gravity="start"
+                    android:drawableStart="@drawable/ic_pet_24"
+                    android:drawablePadding="8dp"/>
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/swtPet"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="50dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="50dp"
+                    android:text="@string/allowed_luggage"
+                    android:textSize="16sp"
+                    android:gravity="start"
+                    android:drawableStart="@drawable/ic_luggage_24"
+                    android:drawablePadding="8dp"/>
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/swtLuggage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="50dp" />
+            </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
@@ -245,14 +313,19 @@
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
                 app:endIconMode="clear_text"
-                app:startIconDrawable="@drawable/ic_password_24">
+                app:startIconDrawable="@drawable/ic_message_24">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_Message"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/model"
-                    android:inputType="textLongMessage" />
+                    android:hint="@string/message"
+                    android:minLines="4"
+                    android:gravity="top"
+                    android:inputType="textMultiLine"
+                    android:scrollbars="vertical"
+                    android:maxLines="6"
+                    android:overScrollMode="ifContentScrolls"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <View
