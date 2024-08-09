@@ -34,4 +34,5 @@
     <string name="allowed_luggage">Allowed Luggage</string>
     <string name="allowed_smoke">Allowed Smoke</string>
     <string name="create_new_trip">Create New Trip</string>
+    <string name="message">Message</string>
 </resources>
