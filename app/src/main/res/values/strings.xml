@@ -25,4 +25,14 @@
     <string name="titleDate">Date</string>
     <string name="titleDepart">Depart</string>
     <string name="titleDestination">Destination</string>
+    <string name="plate">Plate Number\n</string>
+    <string name="price">Price</string>
+    <string name="brand">Brand\n</string>
+    <string name="model">Model\n</string>
+    <string name="air_conditioning">Air Conditioning</string>
+    <string name="pet_friendly">Pet Friendly</string>
+    <string name="allowed_luggage">Allowed Luggage</string>
+    <string name="allowed_smoke">Allowed Smoke</string>
+    <string name="create_new_trip">Create New Trip</string>
+    <string name="message">Message</string>
 </resources>

@@ -47,7 +47,7 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation("com.squareup.retrofit2:retrofit:2.11.0")
     implementation("com.squareup.retrofit2:converter-gson:2.11.0")
-    implementation("com.google.android.material:material:1.5.0")
+    implementation("com.google.android.material:material:1.10.0")
     implementation(libs.androidx.legacy.support.v4)
     implementation(libs.androidx.lifecycle.livedata.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)

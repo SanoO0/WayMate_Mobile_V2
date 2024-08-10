@@ -28,6 +28,9 @@ class MainMenuDriverFragment : Fragment() {
         binding.btnViewProfile.setOnClickListener {
             (requireActivity() as MainActivity).showProfileDriver()
         }
+        binding.btnAddNewTravel.setOnClickListener {
+            (requireActivity() as MainActivity).showAddNewTrip()
+        }
         binding.btnDisconnection.setOnClickListener {
             (requireActivity() as MainActivity).signOut()
         }

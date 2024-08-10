@@ -2,9 +2,7 @@ package com.example.waymate_mobile.dtos.trip
 
 import java.util.Date
 
-data class DtoInputTrip(
-    val id: Int,
-    val idDriver: Int,
+data class DtoOutputTrip(
     val smoke: Boolean,
     val price: Float,
     val luggage: Boolean,
