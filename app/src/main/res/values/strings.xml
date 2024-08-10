@@ -35,4 +35,9 @@
     <string name="allowed_smoke">Allowed Smoke</string>
     <string name="create_new_trip">Create New Trip</string>
     <string name="message">Message</string>
+    <string name="btnModify">Modify</string>
+    <string name="dateTrip">10-08-2024</string>
+    <string name="cityTrip"><![CDATA[Namur --> Liège]]></string>
+    <string name="tripPrice">25.50 €</string>
+    <string name="btnModifyTrip">Modify Trip</string>
 </resources>
