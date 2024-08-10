@@ -13,6 +13,7 @@ import com.example.waymate_mobile.fragments.menu.MainMenuPassengerFragment
 import com.example.waymate_mobile.fragments.qrcode.GenerateQRCodeFragment
 import com.example.waymate_mobile.fragments.showTravel.ShowTravelFragment
 import com.example.waymate_mobile.fragments.trip.addNewTrip.AddNewTripFragment
+import com.example.waymate_mobile.fragments.trip.modifyTrip.ModifyTripFragment
 import com.example.waymate_mobile.services.UserTypeService
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -74,6 +75,11 @@ class MainActivity : AppCompatActivity() {
     fun showAddNewTrip() {
         replaceFragment(AddNewTripFragment.newInstance())
         changeTopMenu(R.drawable.ic_arrow_back_24, true, "Add New Trip - Driver")
+    }
+
+    fun showModifyTrip(dataModifyTrip: DtoInputTrip) {
+        replaceFragment(ModifyTripFragment.newInstance(dataModifyTrip))
+        changeTopMenu(R.drawable.ic_arrow_back_24, true, "Modify Trip - Driver")
     }
 
     private fun replaceFragment(fragment: androidx.fragment.app.Fragment) {
