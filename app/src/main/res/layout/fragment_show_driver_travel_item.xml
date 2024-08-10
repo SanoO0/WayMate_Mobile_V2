@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     android:padding="8dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/basicDetailsLayout"
+        android:layout_weight="1"
+        android:orientation="horizontal">
 
     <TextView
         android:id="@+id/item_day"
@@ -41,4 +51,71 @@
         android:scaleType="centerInside"
         android:src="@drawable/ic_qr_code_24"
         android:contentDescription="@string/qrcode_button_description"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/showDetailsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="10dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/et_dayDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/dateTrip"
+            android:textSize="14sp"
+            app:drawableStartCompat="@drawable/ic_check_24"
+            android:drawablePadding="5dp"/>
+
+        <TextView
+            android:id="@+id/et_CityDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:visibility="visible"
+            android:text="@string/cityTrip"
+            android:textSize="14sp"
+            app:drawableStartCompat="@drawable/ic_check_24"
+            android:drawablePadding="5dp"/>
+
+        <TextView
+            android:id="@+id/et_PriceDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:visibility="visible"
+            android:text="@string/tripPrice"
+            android:textSize="14sp"
+            app:drawableStartCompat="@drawable/ic_check_24"
+            android:drawablePadding="5dp"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/btn_Modify"
+                android:layout_width="100dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rounded_corner"
+                android:backgroundTint="@color/blueWaymate"
+                android:gravity="center"
+                android:text="@string/btnModify"
+                android:textColor="@android:color/white"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:strokeWidth="3dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
 </LinearLayout>

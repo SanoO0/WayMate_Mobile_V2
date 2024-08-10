@@ -7,6 +7,8 @@ import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.PUT
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface ITripRepository {
@@ -18,4 +20,7 @@ interface ITripRepository {
 
     @POST("/api/v1/trip/create")
     suspend fun createTrip(@Body dto: DtoOutputTrip)
+
+    @PUT("/api/v1/trip/update/{id}")
+    suspend fun updateTrip(@Path("id") id: Int, @Body dto: DtoOutputTrip)
 }
