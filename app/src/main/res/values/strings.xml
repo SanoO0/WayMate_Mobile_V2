@@ -35,4 +35,6 @@
     <string name="allowed_smoke">Allowed Smoke</string>
     <string name="create_new_trip">Create New Trip</string>
     <string name="message">Message</string>
+    <string name="search_trips">Search trips</string>
+    <string name="search_trip_filter">Search trip filter</string>
 </resources>
