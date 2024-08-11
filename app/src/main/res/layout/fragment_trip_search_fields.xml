@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".trip_search_fields">
+    tools:context=".fragments.tripSearch.trip_search_fields">
 
     <LinearLayout
         android:layout_width="match_parent"
