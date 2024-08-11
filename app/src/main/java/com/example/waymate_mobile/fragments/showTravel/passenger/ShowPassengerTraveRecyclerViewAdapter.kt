@@ -5,7 +5,9 @@ import android.content.SharedPreferences
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.TextView
+import com.example.waymate_mobile.activities.MainActivity
 import com.example.waymate_mobile.databinding.FragmentShowPassengerTravelItemBinding
 import com.example.waymate_mobile.dtos.trip.DtoInputTrip
 import kotlinx.coroutines.CoroutineScope
@@ -41,6 +43,9 @@ class ShowPassengerTraveRecyclerViewAdapter(
             holder.day.text = formattedDate
             holder.departure.text = item.cityStartingPoint
             holder.destination.text = item.cityDestination
+            holder.scanQRCodeButton.setOnClickListener {
+                (holder.itemView.context as MainActivity).showScanQrCode(item)
+            }
         }
     }
 
@@ -51,5 +56,6 @@ class ShowPassengerTraveRecyclerViewAdapter(
         val day: TextView = binding.itemDay
         val departure: TextView = binding.itemDeparture
         val destination: TextView = binding.itemDestination
+        val scanQRCodeButton: ImageButton = binding.btnQRcode
     }
 }
