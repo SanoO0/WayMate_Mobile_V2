@@ -40,4 +40,7 @@
     <string name="cityTrip"><![CDATA[Namur --> Liège]]></string>
     <string name="tripPrice">25.50 €</string>
     <string name="btnModifyTrip">Modify Trip</string>
+    <string name="btnMenu">Return to the menu</string>
+    <string name="btnScan">Scan QR Code</string>
+    <string name="QRCodeScan">Aucun QR Code Scan</string>
 </resources>
