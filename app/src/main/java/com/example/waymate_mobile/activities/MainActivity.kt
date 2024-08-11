@@ -15,6 +15,7 @@ import com.example.waymate_mobile.fragments.showTravel.ShowTravelFragment
 import com.example.waymate_mobile.fragments.trip.addNewTrip.AddNewTripFragment
 import com.example.waymate_mobile.fragments.trip.modifyTrip.ModifyTripFragment
 import com.example.waymate_mobile.services.UserTypeService
+import com.google.gson.Gson
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -82,6 +83,18 @@ class MainActivity : AppCompatActivity() {
         changeTopMenu(R.drawable.ic_arrow_back_24, true, "Modify Trip - Driver")
     }
 
+    fun showScanQrCode(dataScanTrip: DtoInputTrip) {
+        val gson = Gson()
+        val json = gson.toJson(dataScanTrip)
+        val intent = Intent(this, QRScanActivity::class.java).apply {
+            putExtra("TRIP_DATA_JSON", json)
+        }
+        startActivity(intent)
+        finish()
+    }
+
+
+
     private fun replaceFragment(fragment: androidx.fragment.app.Fragment) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragmentContainerView_mainActivity, fragment)
@@ -134,4 +147,7 @@ class MainActivity : AppCompatActivity() {
             true
         }
     }
+
+
+
 }
