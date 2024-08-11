@@ -2,7 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -15,11 +20,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Waymate_Mobile"
         tools:targetApi="31">
+        <activity
+            android:name=".activities.QRScanActivity"
+            android:exported="false" />
+
         <service
             android:name=".services.UserTypeService"
             android:enabled="true"
-            android:exported="true" >
-        </service>
+            android:exported="true" />
+
         <activity
             android:name=".activities.SignInActivity"
             android:exported="false" />
@@ -32,6 +41,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name="com.journeyapps.barcodescanner.CaptureActivity"
+            android:screenOrientation="fullSensor"
+            tools:replace="android:screenOrientation"/>
+
     </application>
 
 </manifest>
