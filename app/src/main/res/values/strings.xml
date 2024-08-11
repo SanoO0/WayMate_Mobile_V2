@@ -37,4 +37,5 @@
     <string name="message">Message</string>
     <string name="search_trips">Search trips</string>
     <string name="search_trip_filter">Search trip filter</string>
+    <string name="book_a_trip">Book a trip</string>
 </resources>
