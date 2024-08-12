@@ -48,6 +48,7 @@ class QRScanActivity() : AppCompatActivity() {
         val tripScan = gson.fromJson(contents, DtoInputTrip::class.java)
         if(tripScan == dto) {
             binding.textView.setText("Scan Sucessfull")
+            generateCode()
         } else {
             binding.textView.setText("Error scan please retry")
         }
@@ -104,5 +105,20 @@ class QRScanActivity() : AppCompatActivity() {
         binding.btnScan.setOnClickListener {
             showCamera()
         }
+    }
+
+    private fun generateCode() {
+        val builder: StringBuilder = StringBuilder()
+
+        builder.append(dto.plateNumber[0])
+            .append(dto.cityStartingPoint[2])
+            .append(dto.cityDestination[1])
+            .append(dto.model[0])
+            .append(dto.brand[0])
+
+
+        val code: String = builder.toString()
+
+        binding.tvCode.text = code
     }
 }
