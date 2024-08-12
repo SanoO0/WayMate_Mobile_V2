@@ -5,39 +5,96 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.waymate_mobile.R
 import com.example.waymate_mobile.databinding.FragmentMoreDetailsBinding
 import com.example.waymate_mobile.dtos.trip.DtoInputTrip
-import com.example.waymate_mobile.fragments.qrcode.GenerateQRCodeFragment
+import com.example.waymate_mobile.repositories.HereGeocodingService
+import com.example.waymate_mobile.repositories.HereRoutingService
 import com.google.gson.Gson
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import java.text.SimpleDateFormat
+import java.util.Date
 import java.util.Locale
 
 class MoreDetailsFragment : Fragment() {
     private lateinit var binding: FragmentMoreDetailsBinding
     private var dataMoreDetails: String = ""
+    private val apiKey = "_c0cPaKp1zjErUdCtmOLuSccwO8IlQX4HRF6YYC0O2Y"
+    private lateinit var dtoTrip: DtoInputTrip
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentMoreDetailsBinding.inflate(layoutInflater, container, false)
-
         dataMoreDetails = arguments?.getString("dataMoreDetailsPassenger") ?: ""
-
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initEditText()
+    }
+    private fun calculateTravelTime(startCity: String, endCity: String) {
+        val retrofit = Retrofit.Builder()
+            .baseUrl("https://geocode.search.hereapi.com/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
 
+        val geocodingService = retrofit.create(HereGeocodingService::class.java)
+        val routingService = retrofit.newBuilder()
+            .baseUrl("https://router.hereapi.com/")
+            .build()
+            .create(HereRoutingService::class.java)
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val startResponse = geocodingService.geocodeAddress(apiKey, startCity)
+                val endResponse = geocodingService.geocodeAddress(apiKey, endCity)
+
+                if (startResponse.isSuccessful && endResponse.isSuccessful) {
+                    val startPosition = startResponse.body()?.items?.firstOrNull()?.position
+                    val endPosition = endResponse.body()?.items?.firstOrNull()?.position
+
+                    if (startPosition != null && endPosition != null) {
+                        val origin = "${startPosition.lat},${startPosition.lng}"
+                        val destination = "${endPosition.lat},${endPosition.lng}"
+
+                        val routeResponse = routingService.getRoute(apiKey, origin = origin, destination = destination)
+                        val duration = routeResponse.body()?.routes?.firstOrNull()
+                            ?.sections?.firstOrNull()?.summary?.duration
+                        if (duration != null) {
+                            val hours = duration / 3600
+                            val minutes = (duration % 3600) / 60
+                            val arrivalDate = Date(dtoTrip.date.time + duration * 1000)
+                            val dateFormat = SimpleDateFormat("HH:mm", Locale.getDefault())
+                            val date = dateFormat.format(arrivalDate)
+                            withContext(Dispatchers.Main) {
+                                binding.tvTravelTime.text = "Estimated travel time: $hours hours and $minutes minutes"
+                                binding.tvTimeArrive.text = "Estimated arrival time: $date"
+                            }
+                        }
+                    }
+                } else {
+                    withContext(Dispatchers.Main) {
+                        binding.tvTravelTime.text = "Error fetching travel time"
+                    }
+                }
+            } catch (e: Exception) {
+                withContext(Dispatchers.Main) {
+                    binding.tvTravelTime.text = "Exception: ${e.message}"
+                }
+            }
+        }
     }
 
     private fun initEditText() {
         val gson = Gson()
-        val dtoTrip: DtoInputTrip = gson.fromJson(dataMoreDetails, DtoInputTrip::class.java)
+        dtoTrip = gson.fromJson(dataMoreDetails, DtoInputTrip::class.java)
 
-        val dateFormat = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
+        val dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault())
         val date = dateFormat.format(dtoTrip.date)
 
         binding.tvCityStart.text = dtoTrip.cityStartingPoint
@@ -52,6 +109,8 @@ class MoreDetailsFragment : Fragment() {
         binding.tvPet.text = verifyBoolean(dtoTrip.petFriendly)
         binding.tvLuggage.text = verifyBoolean(dtoTrip.luggage)
         binding.tvMessage.text = dtoTrip.driverMessage
+
+        calculateTravelTime(dtoTrip.cityStartingPoint,dtoTrip.cityDestination)
     }
 
     private fun verifyBoolean(boolean: Boolean): String {
