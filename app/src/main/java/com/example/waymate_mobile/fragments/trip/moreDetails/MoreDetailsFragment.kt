@@ -1,14 +1,25 @@
 package com.example.waymate_mobile.fragments.trip.moreDetails
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.lifecycle.lifecycleScope
+import com.example.waymate_mobile.activities.MainActivity
 import com.example.waymate_mobile.databinding.FragmentMoreDetailsBinding
 import com.example.waymate_mobile.dtos.trip.DtoInputTrip
 import com.example.waymate_mobile.repositories.HereGeocodingService
 import com.example.waymate_mobile.repositories.HereRoutingService
+import com.example.waymate_mobile.repositories.ITripRepository
+import com.example.waymate_mobile.repositories.users.user.IUserRepository
+import com.example.waymate_mobile.utils.RetrofitFactory
 import com.google.gson.Gson
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -25,6 +36,7 @@ class MoreDetailsFragment : Fragment() {
     private var dataMoreDetails: String = ""
     private val apiKey = "_c0cPaKp1zjErUdCtmOLuSccwO8IlQX4HRF6YYC0O2Y"
     private lateinit var dtoTrip: DtoInputTrip
+    private lateinit var userRepository: IUserRepository
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -37,6 +49,7 @@ class MoreDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initEditText()
+        initEditDriverInfo()
     }
     private fun calculateTravelTime(startCity: String, endCity: String) {
         val retrofit = Retrofit.Builder()
@@ -111,6 +124,25 @@ class MoreDetailsFragment : Fragment() {
         binding.tvMessage.text = dtoTrip.driverMessage
 
         calculateTravelTime(dtoTrip.cityStartingPoint,dtoTrip.cityDestination)
+    }
+
+    private fun initEditDriverInfo() {
+        val sharedPreferences: SharedPreferences = requireContext().getSharedPreferences("waymate", Context.MODE_PRIVATE)
+        val jwtToken = sharedPreferences.getString("jwtToken", "") ?: ""
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            try {
+                userRepository = RetrofitFactory.create(jwtToken, IUserRepository::class.java)
+                val driverInfo = userRepository.getUserDataById(dtoTrip.idDriver)
+                binding.tvName.text = driverInfo.lastName
+                binding.tvPhone.text = driverInfo.phoneNumber
+                binding.tvMail.text = driverInfo.email
+                binding.tvGender.text = driverInfo.gender
+
+            } catch (e: Exception) {
+                Log.e("Error", "Failed to get user: ${e.message}")
+            }
+        }
     }
 
     private fun verifyBoolean(boolean: Boolean): String {
