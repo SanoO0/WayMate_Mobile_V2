@@ -8,10 +8,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
-import com.example.waymate_mobile.R
 import com.example.waymate_mobile.databinding.FragmentDriverAccountBinding
-import com.example.waymate_mobile.dtos.users.user.DtoInputUser
-import com.example.waymate_mobile.repositories.users.user.IUserRepository
+import com.example.waymate_mobile.dtos.user.DtoInputUser
+import com.example.waymate_mobile.repositories.IUserRepository
 import com.example.waymate_mobile.utils.RetrofitFactory
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat

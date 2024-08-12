@@ -1,6 +1,4 @@
-package com.example.waymate_mobile.dtos.users.user
-
-import java.util.Date
+package com.example.waymate_mobile.dtos.user
 
 data class DtoInputPartialUser(
     val email: String,

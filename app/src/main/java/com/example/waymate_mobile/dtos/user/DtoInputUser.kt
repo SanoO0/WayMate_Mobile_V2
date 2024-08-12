@@ -1,4 +1,4 @@
-package com.example.waymate_mobile.dtos.users.user
+package com.example.waymate_mobile.dtos.user
 
 import java.util.Date
 
