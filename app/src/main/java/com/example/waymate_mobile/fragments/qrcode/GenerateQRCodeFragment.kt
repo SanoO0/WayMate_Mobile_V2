@@ -3,10 +3,12 @@ package com.example.waymate_mobile.fragments.qrcode
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidmads.library.qrgenearator.QRGContents
 import androidmads.library.qrgenearator.QRGEncoder
 import androidx.annotation.RequiresApi
@@ -26,6 +28,7 @@ import java.util.Locale
 class GenerateQRCodeFragment() : Fragment() {
     private lateinit var binding: FragmentGenerateQRCodeBinding
     private var dataQRCode: String = ""
+    private var code: String = ""
 
 
     override fun onCreateView(
@@ -33,20 +36,15 @@ class GenerateQRCodeFragment() : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentGenerateQRCodeBinding.inflate(layoutInflater, container, false)
-
-
-
         val dataQRcodeDriver = arguments?.getString("dataQRcodeDriver") ?: ""
-
-        // Combine data into QR code data
         dataQRCode = dataQRcodeDriver
-
         return  binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-            generateQRCode()
+        generateQRCode()
+        setUpListeners()
     }
 
 
@@ -60,6 +58,7 @@ class GenerateQRCodeFragment() : Fragment() {
         try {
             val gson = Gson()
             val dtoTrip: DtoInputTrip = gson.fromJson(text, DtoInputTrip::class.java)
+            generateCode(dtoTrip)
             val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
             val formattedDate = dateFormat.format(dtoTrip.date)
             binding.tvDataDate.text = formattedDate
@@ -91,5 +90,32 @@ class GenerateQRCodeFragment() : Fragment() {
             fragment.arguments = args
             return fragment
         }
+    }
+
+    private fun setUpListeners() {
+        binding.btnCode.setOnClickListener {
+            val etCode: String = binding.etCode.text.toString()
+            Log.e("etCode", etCode)
+            if(etCode == code) {
+                binding.etPassengerValid.text = "Valid code - Passenger accepted"
+                Toast.makeText(context, "Code valid", Toast.LENGTH_SHORT).show()
+            } else {
+                binding.etPassengerValid.text = "Invalid code - Passenger refused"
+                Toast.makeText(context, "Code invalid", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun generateCode(dto: DtoInputTrip) {
+        val builder: StringBuilder = StringBuilder()
+
+        builder.append(dto.plateNumber[0])
+            .append(dto.cityStartingPoint[2])
+            .append(dto.cityDestination[1])
+            .append(dto.model[0])
+            .append(dto.brand[0])
+
+        code = builder.toString()
+        Log.e("code", code)
     }
 }

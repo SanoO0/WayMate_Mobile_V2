@@ -62,15 +62,15 @@
 
     <LinearLayout
         android:id="@+id/linearLayoutTitle"
-        android:layout_width="80dp"
-        android:layout_height="133dp"
+        android:layout_width="77dp"
+        android:layout_height="76dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintHorizontal_bias="0.166"
+        app:layout_constraintHorizontal_bias="0.164"
         app:layout_constraintStart_toStartOf="@+id/view"
         app:layout_constraintTop_toTopOf="@+id/view"
-        app:layout_constraintVertical_bias="0.488">
+        app:layout_constraintVertical_bias="0.163">
 
         <TextView
             android:id="@+id/tv_titleDate"
@@ -94,15 +94,15 @@
 
     <LinearLayout
         android:id="@+id/linearLayoutData"
-        android:layout_width="83dp"
-        android:layout_height="130dp"
+        android:layout_width="77dp"
+        android:layout_height="76dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintEnd_toEndOf="@+id/view"
         app:layout_constraintHorizontal_bias="0.919"
         app:layout_constraintStart_toStartOf="@+id/view"
         app:layout_constraintTop_toTopOf="@+id/view"
-        app:layout_constraintVertical_bias="0.476">
+        app:layout_constraintVertical_bias="0.163">
 
         <TextView
             android:id="@+id/tv_dataDate"
@@ -128,10 +128,64 @@
         android:id="@+id/tv_Today"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="130dp"
         android:text="@string/today"
         app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintEnd_toEndOf="@+id/view"
         app:layout_constraintStart_toStartOf="@+id/view" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/et_codeLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="85dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="85dp"
+        android:backgroundTint="@color/blueWaymate"
+        android:hint="Code"
+        android:inputType="text"
+        android:textColor="@color/blueWaymate"
+        android:textColorHint="@color/blueWaymate"
+        app:endIconMode="clear_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_Today"
+        app:startIconDrawable="@drawable/ic_password_24">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btn_Code"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/rounded_corner"
+        android:backgroundTint="@color/redWaymate"
+        android:text="Validate code"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_codeLayout"
+        app:strokeWidth="3dp" />
+
+    <TextView
+        android:id="@+id/et_passengerValid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_Code" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
