@@ -14,6 +14,7 @@ import com.example.waymate_mobile.fragments.qrcode.GenerateQRCodeFragment
 import com.example.waymate_mobile.fragments.showTravel.ShowTravelFragment
 import com.example.waymate_mobile.fragments.trip.addNewTrip.AddNewTripFragment
 import com.example.waymate_mobile.fragments.trip.modifyTrip.ModifyTripFragment
+import com.example.waymate_mobile.fragments.trip.moreDetails.MoreDetailsFragment
 import com.example.waymate_mobile.services.UserTypeService
 import com.google.gson.Gson
 import kotlinx.coroutines.CoroutineScope
@@ -91,6 +92,11 @@ class MainActivity : AppCompatActivity() {
         }
         startActivity(intent)
         finish()
+    }
+
+    fun showPassengerTripMoreDetails(dataMoreDetailsTrip: DtoInputTrip) {
+        replaceFragment(MoreDetailsFragment.newInstance(dataMoreDetailsTrip))
+        changeTopMenu(R.drawable.ic_arrow_back_24, true, "My Booking - Passenger")
     }
 
 

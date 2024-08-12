@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageButton
+import android.widget.LinearLayout
 import android.widget.TextView
 import com.example.waymate_mobile.activities.MainActivity
 import com.example.waymate_mobile.databinding.FragmentShowPassengerTravelItemBinding
@@ -46,6 +47,13 @@ class ShowPassengerTraveRecyclerViewAdapter(
             holder.scanQRCodeButton.setOnClickListener {
                 (holder.itemView.context as MainActivity).showScanQrCode(item)
             }
+            holder.details.setOnLongClickListener {
+                val context = holder.itemView.context
+                if (context is MainActivity) {
+                    (holder.itemView.context as MainActivity).showPassengerTripMoreDetails(item)
+                }
+                true
+            }
         }
     }
 
@@ -57,5 +65,6 @@ class ShowPassengerTraveRecyclerViewAdapter(
         val departure: TextView = binding.itemDeparture
         val destination: TextView = binding.itemDestination
         val scanQRCodeButton: ImageButton = binding.btnQRcode
+        val details: LinearLayout = binding.basicDetailsLayout
     }
 }
