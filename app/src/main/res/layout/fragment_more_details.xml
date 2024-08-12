@@ -202,7 +202,7 @@
             android:layout_marginStart="15dp"
             android:drawableStart="@drawable/ic_air_conditioning_24"
             android:drawablePadding="10dp"
-            android:text="@string/air_conditioning" />
+            android:text="@string/tvAirConditioning" />
 
         <TextView
             android:id="@+id/tv_Air"

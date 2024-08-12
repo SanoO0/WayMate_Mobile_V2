@@ -38,7 +38,7 @@
                     android:id="@+id/et_startingPoint"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/depart"
+                    android:hint="@string/ttlDepart"
                     android:inputType="text" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -60,7 +60,7 @@
                     android:id="@+id/et_Destination"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/destination"
+                    android:hint="@string/ttlDestination"
                     android:inputType="text" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -82,7 +82,7 @@
                     android:id="@+id/et_DatePicker"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/date"
+                    android:hint="@string/ttlDate"
                     android:inputType="text" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -104,7 +104,7 @@
                     android:id="@+id/et_TimePicker"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/date"
+                    android:hint="@string/ttlDate"
                     android:inputType="text" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -126,7 +126,7 @@
                     android:id="@+id/et_Price"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/price"
+                    android:hint="@string/htPrice"
                     android:inputType="numberDecimal" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -164,7 +164,7 @@
                     android:id="@+id/et_PlateNumber"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/plate"
+                    android:hint="@string/htPlate"
                     android:inputType="text" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -186,7 +186,7 @@
                     android:id="@+id/et_Brand"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/brand"
+                    android:hint="@string/htBrand"
                     android:inputType="text" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -208,7 +208,7 @@
                     android:id="@+id/et_Model"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/model"
+                    android:hint="@string/htModel"
                     android:inputType="text" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -240,7 +240,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginStart="50dp"
-                    android:text="@string/air_conditioning"
+                    android:text="@string/tvAirConditioning"
                     android:textSize="16sp"
                     android:gravity="start"
                     android:drawableStart="@drawable/ic_air_conditioning_24"
@@ -265,7 +265,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginStart="50dp"
-                    android:text="@string/allowed_smoke"
+                    android:text="@string/tvSmoke"
                     android:textSize="16sp"
                     android:gravity="start"
                     android:drawableStart="@drawable/ic_smoke_24"
@@ -290,7 +290,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginStart="50dp"
-                    android:text="@string/pet_friendly"
+                    android:text="@string/tvPetFriendly"
                     android:textSize="16sp"
                     android:gravity="start"
                     android:drawableStart="@drawable/ic_pet_24"
@@ -315,7 +315,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginStart="50dp"
-                    android:text="@string/allowed_luggage"
+                    android:text="@string/tvLuggage"
                     android:textSize="16sp"
                     android:gravity="start"
                     android:drawableStart="@drawable/ic_luggage_24"
@@ -354,7 +354,7 @@
                     android:id="@+id/et_Message"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/message"
+                    android:hint="@string/htMessage"
                     android:minLines="4"
                     android:gravity="top"
                     android:inputType="textMultiLine"
@@ -382,7 +382,7 @@
                 android:layout_marginBottom="100dp"
                 android:backgroundTint="@color/blueWaymate"
                 android:background="@drawable/rounded_corner"
-                android:text="@string/create_new_trip"
+                android:text="@string/btnCreateTrip"
                 android:textSize="20sp"
                 android:textColor="@android:color/white"
                 app:strokeWidth="3dp" />

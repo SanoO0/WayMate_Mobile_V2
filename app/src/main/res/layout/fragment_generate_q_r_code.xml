@@ -76,19 +76,19 @@
             android:id="@+id/tv_titleDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/titleDate" />
+            android:text="@string/ttlDate" />
 
         <TextView
             android:id="@+id/tv_titleDepart"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/titleDepart" />
+            android:text="@string/ttlDepart" />
 
         <TextView
             android:id="@+id/tv_titleDestination"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/titleDestination" />
+            android:text="@string/ttlDestination" />
 
     </LinearLayout>
 
@@ -129,7 +129,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="130dp"
-        android:text="@string/today"
+        android:text="@string/tvToday"
         app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintEnd_toEndOf="@+id/view"
         app:layout_constraintStart_toStartOf="@+id/view" />

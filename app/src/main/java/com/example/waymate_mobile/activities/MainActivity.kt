@@ -20,6 +20,7 @@ import com.google.gson.Gson
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlin.math.sign
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -99,8 +100,6 @@ class MainActivity : AppCompatActivity() {
         changeTopMenu(R.drawable.ic_arrow_back_24, true, "My Booking - Passenger")
     }
 
-
-
     private fun replaceFragment(fragment: androidx.fragment.app.Fragment) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragmentContainerView_mainActivity, fragment)
@@ -153,7 +152,4 @@ class MainActivity : AppCompatActivity() {
             true
         }
     }
-
-
-
 }

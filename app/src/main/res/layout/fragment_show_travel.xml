@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginEnd="-20dp"
-            android:text="@string/date"
+            android:text="@string/ttlDate"
             android:textAppearance="?attr/textAppearanceListItem" />
 
         <TextView
@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginEnd="-20dp"
-            android:text="@string/depart"
+            android:text="@string/ttlDepart"
             android:textAppearance="?attr/textAppearanceListItem" />
 
         <TextView
@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginEnd="8dp"
-            android:text="@string/destination"
+            android:text="@string/ttlDestination"
             android:textAppearance="?attr/textAppearanceListItem" />
     </LinearLayout>
 

@@ -49,8 +49,7 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="0dp"
         android:scaleType="centerInside"
-        android:src="@drawable/ic_qr_code_24"
-        android:contentDescription="@string/qrcode_button_description"/>
+        android:src="@drawable/ic_qr_code_24"/>
 
     </LinearLayout>
 
@@ -68,7 +67,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@string/dateTrip"
+            android:text="@string/detailsDateTrip"
             android:textSize="14sp"
             app:drawableStartCompat="@drawable/ic_check_24"
             android:drawablePadding="5dp"/>
@@ -79,7 +78,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:visibility="visible"
-            android:text="@string/cityTrip"
+            android:text="@string/detailsCityTrip"
             android:textSize="14sp"
             app:drawableStartCompat="@drawable/ic_check_24"
             android:drawablePadding="5dp"/>
@@ -90,7 +89,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:visibility="visible"
-            android:text="@string/tripPrice"
+            android:text="@string/detailsTripPrice"
             android:textSize="14sp"
             app:drawableStartCompat="@drawable/ic_check_24"
             android:drawablePadding="5dp"/>

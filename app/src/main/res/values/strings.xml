@@ -1,48 +1,71 @@
 <resources>
+    <!--Application Name-->
     <string name="app_name">Waymate_Mobile</string>
-    <string name="email">Email</string>
-    <string name="password">Password</string>
+
+    <!--Sign In Page-->
+    <string name="signInPassword">Password</string>
+    <string name="signInEmail">Email</string>
     <string name="btnSignIn">Sign In</string>
-    <string name="content_description_end_icon">                                   </string>
+
+    <!--Top Menu Bar-->
     <string name="back">Back</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="btnShowTravel">See Travel</string>
-    <string name="btnShowProfil">View Profil</string>
-    <string name="btnLogOut">Disconnection</string>
-    <string name="btnShowMyTravel">Show My Travel</string>
-    <string name="btnAddNewTravel">Add New Travel</string>
-    <string name="depart">Départ</string>
-    <string name="destination">Destination</string>
-    <string name="date">Date</string>
-    <string name="date_item">21/04/2000</string>
+
+    <!--Menu Passenger-->
+    <string name="menuPassengerBtnShowTravel">See Travel</string>
+
+    <!--Menu Global-->
+    <string name="menuBtnShowProfile">View Profile</string>
+    <string name="menuBtnLogOut">Disconnection</string>
+
+    <!--Menu Driver-->
+    <string name="menuDriverBtnShowMyTravel">Show My Travel</string>
+    <string name="menuDriverBtnAddNewTravel">Add New Travel</string>
+
+    <!--Title-->
+    <string name="ttlDepart">Depart</string>
+    <string name="ttlDestination">Destination</string>
+    <string name="ttlDate">Date</string>
+
+    <!--List Item-->
+    <string name="date_item">21–04–2000</string>
     <string name="departure_item">Brussels</string>
     <string name="destination_item">Mons</string>
-    <string name="qrcode_button_description">Generate QrCode</string>
-    <string name="more_trips">More trips</string>
-    <string name="more_booking">More Booking</string>
-    <string name="data">UserData</string>
-    <string name="today">08/07/2024 - 16h00</string>
-    <string name="titleDate">Date</string>
-    <string name="titleDepart">Depart</string>
-    <string name="titleDestination">Destination</string>
-    <string name="plate">Plate Number\n</string>
-    <string name="price">Price</string>
-    <string name="brand">Brand\n</string>
-    <string name="model">Model\n</string>
-    <string name="air_conditioning">Air Conditioning</string>
-    <string name="pet_friendly">Pet Friendly</string>
-    <string name="allowed_luggage">Allowed Luggage</string>
-    <string name="allowed_smoke">Allowed Smoke</string>
-    <string name="create_new_trip">Create New Trip</string>
-    <string name="message">Message</string>
+
+    <!--Load More-->
+    <string name="btnMoreTrips">More trips</string>
+    <string name="btnMoreBooking">More Booking</string>
+
+    <!--Hint-->
+    <string name="htPlate">Plate Number</string>
+    <string name="htPrice">Price</string>
+    <string name="htBrand">Brand</string>
+    <string name="htModel">Model</string>
+    <string name="htMessage">Message</string>
+
+    <!--TextView-->
+    <string name="tvAirConditioning">Air Conditioning</string>
+    <string name="tvPetFriendly">Pet Friendly</string>
+    <string name="tvLuggage">Allowed Luggage</string>
+    <string name="tvSmoke">Allowed Smoke</string>
+    <string name="tvQRCodeScan">No QR Code has been scanned</string>
+    <string name="tvToday">08/07/2024 – 16h00</string>
+
+    <!--Btn Text-->
+    <string name="btnCreateTrip">Create Trip</string>
     <string name="btnModify">Modify</string>
-    <string name="dateTrip">10-08-2024</string>
-    <string name="cityTrip"><![CDATA[Namur --> Liège]]></string>
-    <string name="tripPrice">25.50 €</string>
     <string name="btnModifyTrip">Modify Trip</string>
     <string name="btnMenu">Return to the menu</string>
     <string name="btnScan">Scan QR Code</string>
-    <string name="QRCodeScan">Aucun QR Code Scan</string>
+
+    <!--List Details-->
+    <string name="detailsDateTrip">10–08–2024</string>
+    <string name="detailsCityTrip"><![CDATA[Namur —> Liège]]></string>
+    <string name="detailsTripPrice">25.50 €</string>
+
+    <!--Generic Data-->
+    <string name="data">Data</string>
+
+    <!--More Details-->
     <string name="departure_city">Departure city</string>
     <string name="destination_city">Destination city</string>
     <string name="travel_date">Travel date</string>

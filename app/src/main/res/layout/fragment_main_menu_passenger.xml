@@ -24,7 +24,7 @@
             android:layout_marginTop="200dp"
             android:background="@drawable/rounded_corner"
             android:backgroundTint="@color/blueWaymate"
-            android:text="@string/btnShowTravel"
+            android:text="@string/menuPassengerBtnShowTravel"
             android:textColor="@android:color/white"
             android:textSize="20sp" />
 
@@ -36,7 +36,7 @@
             android:layout_marginTop="100dp"
             android:background="@drawable/rounded_corner"
             android:backgroundTint="@color/blueWaymate"
-            android:text="@string/btnShowProfil"
+            android:text="@string/menuBtnShowProfile"
             android:textColor="@android:color/white"
             android:textSize="20sp" />
 
@@ -47,7 +47,7 @@
             android:layout_marginTop="100dp"
             android:background="@drawable/rounded_corner"
             android:backgroundTint="@color/blueWaymate"
-            android:text="@string/btnLogOut"
+            android:text="@string/menuBtnLogOut"
             android:textColor="@android:color/white"
             android:textSize="20sp" />
     </LinearLayout>
