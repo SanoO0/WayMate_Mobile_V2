@@ -43,4 +43,14 @@
     <string name="btnMenu">Return to the menu</string>
     <string name="btnScan">Scan QR Code</string>
     <string name="QRCodeScan">Aucun QR Code Scan</string>
+    <string name="departure_city">Departure city</string>
+    <string name="destination_city">Destination city</string>
+    <string name="travel_date">Travel date</string>
+    <string name="price_of_the_trip">Price of the trip</string>
+    <string name="plate_number">Plate number</string>
+    <string name="car_brand">Car brand</string>
+    <string name="car_model">Car model</string>
+    <string name="can_you_smoke">Can you smoke</string>
+    <string name="pets_accepted">Pets accepted</string>
+    <string name="can_you_take_luggage">Can you take luggage ?</string>
 </resources>
