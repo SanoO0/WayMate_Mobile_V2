@@ -47,12 +47,11 @@ class ShowPassengerTraveRecyclerViewAdapter(
             holder.scanQRCodeButton.setOnClickListener {
                 (holder.itemView.context as MainActivity).showScanQrCode(item)
             }
-            holder.details.setOnLongClickListener {
+            holder.day.setOnClickListener {
                 val context = holder.itemView.context
                 if (context is MainActivity) {
-                    (holder.itemView.context as MainActivity).showPassengerTripMoreDetails(item)
+                    (context as MainActivity).showPassengerTripMoreDetails(item)
                 }
-                true
             }
         }
     }
@@ -65,6 +64,5 @@ class ShowPassengerTraveRecyclerViewAdapter(
         val departure: TextView = binding.itemDeparture
         val destination: TextView = binding.itemDestination
         val scanQRCodeButton: ImageButton = binding.btnQRcode
-        val details: LinearLayout = binding.basicDetailsLayout
     }
 }
