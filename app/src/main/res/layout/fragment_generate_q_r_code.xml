@@ -76,18 +76,21 @@
             android:id="@+id/tv_titleDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:text="@string/ttlDate" />
 
         <TextView
             android:id="@+id/tv_titleDepart"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:text="@string/ttlDepart" />
 
         <TextView
             android:id="@+id/tv_titleDestination"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:text="@string/ttlDestination" />
 
     </LinearLayout>
@@ -108,18 +111,21 @@
             android:id="@+id/tv_dataDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:text="@string/data" />
 
         <TextView
             android:id="@+id/tv_dataDepart"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:text="@string/data" />
 
         <TextView
             android:id="@+id/tv_dataDestination"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:text="@string/data" />
 
     </LinearLayout>
@@ -130,6 +136,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="130dp"
         android:text="@string/tvToday"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintEnd_toEndOf="@+id/view"
         app:layout_constraintStart_toStartOf="@+id/view" />
@@ -145,7 +152,7 @@
         android:hint="Code"
         android:inputType="text"
         android:textColor="@color/blueWaymate"
-        android:textColorHint="@color/blueWaymate"
+        android:textColorHint="@color/white"
         app:endIconMode="clear_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -164,7 +171,7 @@
     <Button
         android:id="@+id/btn_Code"
         android:layout_width="160dp"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/rounded_corner"
         android:backgroundTint="@color/redWaymate"
@@ -184,8 +191,10 @@
         android:layout_marginTop="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_Code" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_Code"
+        app:layout_constraintVertical_bias="0.677" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

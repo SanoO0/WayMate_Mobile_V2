@@ -76,4 +76,5 @@
     <string name="can_you_smoke">Can you smoke</string>
     <string name="pets_accepted">Pets accepted</string>
     <string name="can_you_take_luggage">Can you take luggage ?</string>
+    <string name="ttlHour">Hour</string>
 </resources>
