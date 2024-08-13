@@ -46,9 +46,7 @@ class QRScanActivity() : AppCompatActivity() {
 
     // Handle the QR code scan result
     private fun setResult(contents: String) {
-        Toast.makeText(this, contents, Toast.LENGTH_SHORT).show()
-        val gson = Gson()
-        val tripScan = gson.fromJson(contents, DtoInputTrip::class.java)
+        val tripScan = Gson().fromJson(contents, DtoInputTrip::class.java)
         if(tripScan == dto) {
             binding.textView.text = "Scan Sucessfull"
             generateCode()
