@@ -36,14 +36,18 @@ class MoreDetailsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        // Inflate the layout for this fragment
         binding = FragmentMoreDetailsBinding.inflate(layoutInflater, container, false)
+        // Retrieve trip data from arguments
         dataMoreDetails = arguments?.getString("dataMoreDetailsPassenger") ?: ""
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        // Initialize UI elements with trip data
         initEditText()
+        // Load and display driver information
         initEditDriverInfo()
     }
     private fun calculateTravelTime(startCity: String, endCity: String) {
@@ -57,8 +61,10 @@ class MoreDetailsFragment : Fragment() {
             .baseUrl("https://router.hereapi.com/")
             .build()
             .create(HereRoutingService::class.java)
+
         CoroutineScope(Dispatchers.IO).launch {
             try {
+                // Get coordinates for start and end cities
                 val startResponse = geocodingService.geocodeAddress(apiKey, startCity)
                 val endResponse = geocodingService.geocodeAddress(apiKey, endCity)
 
@@ -80,6 +86,7 @@ class MoreDetailsFragment : Fragment() {
                             val dateFormat = SimpleDateFormat("HH:mm", Locale.getDefault())
                             val date = dateFormat.format(arrivalDate)
                             withContext(Dispatchers.Main) {
+                                // Update UI with travel time and arrival time
                                 binding.tvTravelTime.text = "Estimated travel time: $hours hours and $minutes minutes"
                                 binding.tvTimeArrive.text = "Estimated arrival time: $date"
                             }
@@ -99,9 +106,9 @@ class MoreDetailsFragment : Fragment() {
     }
 
     private fun initEditText() {
-        val gson = Gson()
-        dtoTrip = gson.fromJson(dataMoreDetails, DtoInputTrip::class.java)
-
+        // Deserialize trip data from JSON
+        dtoTrip = Gson().fromJson(dataMoreDetails, DtoInputTrip::class.java)
+        // Format date and populate UI with trip details
         val dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault())
         val date = dateFormat.format(dtoTrip.date)
 
@@ -117,24 +124,26 @@ class MoreDetailsFragment : Fragment() {
         binding.tvPet.text = verifyBoolean(dtoTrip.petFriendly)
         binding.tvLuggage.text = verifyBoolean(dtoTrip.luggage)
         binding.tvMessage.text = dtoTrip.driverMessage
-
+        // Calculate and display travel time
         calculateTravelTime(dtoTrip.cityStartingPoint,dtoTrip.cityDestination)
     }
 
     private fun initEditDriverInfo() {
+        // Retrieve JWT token from shared preferences
         val sharedPreferences: SharedPreferences = requireContext().getSharedPreferences("waymate", Context.MODE_PRIVATE)
         val jwtToken = sharedPreferences.getString("jwtToken", "") ?: ""
 
         viewLifecycleOwner.lifecycleScope.launch {
             try {
+                // Initialize userRepository and fetch driver info
                 userRepository = RetrofitFactory.create(jwtToken, IUserRepository::class.java)
                 val driverInfo = userRepository.getUserDataById(dtoTrip.idDriver)
                 Log.e("driverINFO", driverInfo.toString())
+                // Populate UI with driver information
                 binding.tvName.text = driverInfo.lastName
                 binding.tvPhone.text = driverInfo.phoneNumber
                 binding.tvMail.text = driverInfo.email
                 binding.tvGender.text = driverInfo.gender
-
             } catch (e: Exception) {
                 Log.e("Error", "Failed to get user: ${e.message}")
             }
@@ -142,19 +151,15 @@ class MoreDetailsFragment : Fragment() {
     }
 
     private fun verifyBoolean(boolean: Boolean): String {
-        if(boolean) {
-            return "Yes"
-        } else {
-            return "No"
-        }
+        // Convert boolean to "Yes" or "No"
+        return if (boolean) "Yes" else "No"
     }
 
     companion object {
         @JvmStatic
         fun newInstance(dataMoreDetails: DtoInputTrip): MoreDetailsFragment {
             val fragment = MoreDetailsFragment()
-            val gson = Gson()
-            val json = gson.toJson(dataMoreDetails)
+            val json = Gson().toJson(dataMoreDetails)
             val args = Bundle()
             args.putString("dataMoreDetailsPassenger", json)
             fragment.arguments = args
