@@ -6,7 +6,6 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageButton
-import android.widget.LinearLayout
 import android.widget.TextView
 import com.example.waymate_mobile.activities.MainActivity
 import com.example.waymate_mobile.databinding.FragmentShowPassengerTravelItemBinding

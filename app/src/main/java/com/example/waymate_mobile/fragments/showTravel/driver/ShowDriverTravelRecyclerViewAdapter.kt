@@ -11,12 +11,9 @@ import android.widget.Button
 import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.fragment.app.FragmentActivity
-import com.example.waymate_mobile.R
 import com.example.waymate_mobile.activities.MainActivity
 import com.example.waymate_mobile.databinding.FragmentShowDriverTravelItemBinding
 import com.example.waymate_mobile.dtos.trip.DtoInputTrip
-import com.example.waymate_mobile.fragments.qrcode.GenerateQRCodeFragment
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

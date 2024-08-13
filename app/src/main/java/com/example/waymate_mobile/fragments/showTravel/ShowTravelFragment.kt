@@ -30,7 +30,6 @@ class ShowTravelFragment : Fragment() {
             val showTravelFragment = ShowPassengerTravelManagerFragment.newInstance()
             replaceFragment(showTravelFragment)
         }
-
     }
 
     private fun replaceFragment(fragment: Fragment) {
