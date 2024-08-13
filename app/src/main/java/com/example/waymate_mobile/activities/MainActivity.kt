@@ -31,12 +31,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        // Check if the authentication token is present
         if (!isTokenPresent()) {
-            startActivity(Intent(this, SignInActivity::class.java))
-            finish()
+            showSignInPage()
         }
         userTypeTest()
         setUpListeners()
+    }
+
+    private fun showSignInPage() {
+        startActivity(Intent(this, SignInActivity::class.java))
+        finish()
     }
 
     private fun showMainMenuDriver() {
@@ -108,9 +113,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun changeTopMenu(icon: Int, enable: Boolean, title: String) {
-        binding.topMenuBar.menu.getItem(0).setIcon(icon)
-        binding.topMenuBar.menu.getItem(0).setEnabled(enable)
-        binding.topMenuBar.menu.getItem(0).title = title
+        binding.topMenuBar.menu.getItem(0).apply {
+            setIcon(icon)
+            isEnabled = enable
+            this.title = title
+        }
     }
 
     private fun isTokenPresent(): Boolean = getSharedPreferences("waymate", MODE_PRIVATE).getString("jwtToken", null) != null
@@ -121,11 +128,11 @@ class MainActivity : AppCompatActivity() {
         editor.putString("jwtToken", null)
         editor.apply()
         if (!isTokenPresent()) {
-            startActivity(Intent(this, SignInActivity::class.java))
-            finish()
+            showSignInPage()
         }
     }
 
+    //Get userType
     private fun userTypeTest(){
         userTypeService = UserTypeService(this)
         CoroutineScope(Dispatchers.Main).launch {
@@ -134,14 +141,13 @@ class MainActivity : AppCompatActivity() {
                 showMainMenuDriver()
             } else if(userType == "Passenger") {
                 showMainMenuPassenger()
-            } else if(userType == "Admin") {
-
             } else {
-
+                showSignInPage()
             }
         }
     }
 
+    //Go back to previous fragment
     private fun setUpListeners() {
         binding.topMenuBar.setNavigationItemSelectedListener { item ->
             when (item.itemId) {

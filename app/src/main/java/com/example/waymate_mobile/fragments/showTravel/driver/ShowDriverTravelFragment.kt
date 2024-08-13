@@ -18,7 +18,6 @@ class ShowDriverTravelFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_show_driver_travel_list, container, false)
-
         if (view is RecyclerView) {
             showDriverTravelRecyclerViewAdapter =
                 ShowDriverTravelRecyclerViewAdapter(requireContext(), tripUI)
@@ -35,9 +34,6 @@ class ShowDriverTravelFragment : Fragment() {
             tripUI.addAll(it)
             showDriverTravelRecyclerViewAdapter.notifyDataSetChanged()
         }
-
-
-
     }
 
     companion object {

@@ -1,7 +1,6 @@
 package com.example.waymate_mobile.fragments.showTravel.driver
 
 import android.content.Context
-import androidx.fragment.app.viewModels
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,9 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
 import com.example.waymate_mobile.R
-import com.example.waymate_mobile.activities.MainActivity
 import com.example.waymate_mobile.databinding.FragmentShowDriverTravelManagerBinding
-import com.example.waymate_mobile.fragments.showTravel.ShowTravelFragment
 import kotlinx.coroutines.launch
 
 class ShowDriverTravelManagerFragment : Fragment() {

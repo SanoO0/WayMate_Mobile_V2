@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.waymate_mobile.R
 import com.example.waymate_mobile.activities.MainActivity
 import com.example.waymate_mobile.databinding.FragmentMainMenuDriverBinding
 
@@ -22,19 +21,20 @@ class MainMenuDriverFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val mainActivity = requireActivity() as MainActivity
         binding.btnShowMyTravel.setOnClickListener {
-            (requireActivity() as MainActivity).showDriverTravel()
+            mainActivity.showDriverTravel()
         }
         binding.btnViewProfile.setOnClickListener {
-            (requireActivity() as MainActivity).showProfileDriver()
+            mainActivity.showProfileDriver()
         }
         binding.btnAddNewTravel.setOnClickListener {
-            (requireActivity() as MainActivity).showAddNewTrip()
+            mainActivity.showAddNewTrip()
         }
         binding.btnDisconnection.setOnClickListener {
-            (requireActivity() as MainActivity).signOut()
+            mainActivity.signOut()
         }
-        (requireActivity() as MainActivity).changeTopMenu(0, false, "")
+        mainActivity.changeTopMenu(0, false, "")
     }
 
     companion object {
