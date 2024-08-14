@@ -59,7 +59,7 @@ class ShowDriverTravelRecyclerViewAdapter(
                     } else {
                         holder.details.visibility = View.VISIBLE
 
-                        val format = SimpleDateFormat("dd/MM/yyyy hh:MM", Locale.getDefault())
+                        val format = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
                         val date = format.format(item.date)
 
                         holder.dayDetails.text = date
